@@ -1,51 +1,64 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
-  const authLinks = (
-    <ul>
-      <li>
-        <Link to="/profiles">developers</Link>
-      </li>
-      <li>
-        <Link to="/posts">posts</Link>
-      </li>
-      <li>
-        <Link to="/dashboard">Dashboard</Link>
-      </li>
-      <li>
-        <Link onClick={logout} to="#!">
-          <span>Logout</span>
+  const [toggle, setToggle] = useState(false);
+
+  const authLinks = [
+    { title: 'community', to: '/community', action: '' },
+    { title: 'profile', to: '/profile', action: '' },
+    { title: 'logout', to: '', action: 'LOGOUT' }
+  ];
+  const guestLinks = [
+    { title: 'community', to: '/community', action: '' },
+    { title: 'register', to: '/register', action: '' },
+    { title: 'login', to: '/login', action: '' }
+  ];
+
+  const renderMenu = () => (
+    <Fragment>
+      {(isAuthenticated ? authLinks : guestLinks).map((link) => (
+        <Link
+          to={link.to}
+          className="navbar_text"
+          onClick={() => {
+            if (link.action) {
+              if (typeof link.action === 'string') {
+                link.action();
+              } else {
+                link.action.forEach((el) => el && el());
+              }
+            }
+            setToggle(!toggle);
+          }}
+        >
+          {link.title}
         </Link>
-      </li>
-    </ul>
+      ))}
+    </Fragment>
   );
-  const guestLinks = (
-    <ul>
-      <li>
-        <Link to="/profiles">developers</Link>
-      </li>
-      <li>
-        <Link to="/register">Register</Link>
-      </li>
-      <li>
-        <Link to="/login">Login</Link>
-      </li>
-    </ul>
-  );
+
   return (
-    <nav className="navbar bg-dark">
-      <h1>
-        <Link to="/">
-          <i className="fas fa-code"></i> DevConnector
+    <nav>
+      <div className="navbar_logo">
+        <Link to="/" className="navbar_text" onClick={() => setToggle(false)}>
+          <i className="fas fa-dog" /> <span>DevConnector</span>
         </Link>
-      </h1>
-      {!loading && (
-        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
-      )}
+      </div>
+      <div
+        className="navbar_hamburger navbar_text"
+        onClick={() => setToggle(!toggle)}
+      >
+        <div className={`navbar_hamburger_line`}></div>
+        <div className={`navbar_hamburger_line`}></div>
+        <div className={`navbar_hamburger_line`}></div>
+      </div>
+      <div className={`navbar_links ${toggle ? 'open' : ''}`}>
+        {!loading && renderMenu()}
+      </div>
     </nav>
   );
 };

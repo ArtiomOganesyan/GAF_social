@@ -37,7 +37,14 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar />
-          <Route exact path="/" component={Landing} />
+          <section className="landing">
+            <div className="landing_inner">
+              <span>44444444</span>
+              <span>44444444</span>
+              <span onClick={() => console.log('hit')}>44444444</span>
+            </div>
+          </section>
+          {/* <Route exact path="/" component={Landing} />
           <section className="container">
             <Alert />
             <Switch>
@@ -66,7 +73,7 @@ const App = () => {
                 component={AddExperience}
               />
             </Switch>
-          </section>
+          </section> */}
         </Fragment>
       </Router>
     </Provider>

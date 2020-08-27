@@ -1,0 +1,44 @@
+:root {
+    --primary-color: #928eaf;
+    --info-color: #2f4a5c;
+    --dark-color: #343a40;
+    --light-color: #f4f4f4;
+    --warning-color: #de9535;
+    --danger-color: #f44336;
+    --success-color: #61a56d;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  img {
+    width: 100%;
+  }
+  
+  nav {
+    background: var(--dark-color);
+    height: 10vh;
+    border-bottom: solid 2px var(--primary-color);
+    color: var(--light-color);
+    position: relative;
+  }

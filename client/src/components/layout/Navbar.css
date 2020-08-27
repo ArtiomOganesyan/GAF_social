@@ -1,0 +1,131 @@
+@import url('../../constants_style.css');
+.navbar_logo {
+  position: absolute;
+  cursor: pointer;
+  left: 5%;
+  top: -20%;
+  transform: translate(-5%, -50%);
+  z-index: 99;
+  transition: all 1.5s ease-out;
+}
+
+.navbar_links {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: auto;
+}
+
+.navbar_text {
+  color: var(--light-color);
+}
+
+.navbar_text:hover {
+  color: var(--warning-color);
+}
+
+@media screen and (max-width: 768px) {
+  .navbar_logo {
+    top: 50%;
+  }
+  .navbar_hamburger_line {
+    width: 30px;
+    height: 3px;
+    background: var(--light-color);
+    margin: 5px;
+  }
+
+  .navbar_hamburger {
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 50%;
+    transform: translate(-5%, -50%);
+    z-index: 99;
+  }
+
+  .navbar_links {
+    position: fixed;
+    background: var(--info-color);
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    clip-path: circle(0px at 100% 0%);
+    -webkit-clip-path: circle(0px at 100% 0%);
+    transition: all 1.5s ease-out;
+    pointer-events: none;
+  }
+
+  .navbar_links.open {
+    clip-path: circle(1500px at 100% 0%);
+    -webkit-clip-path: circle(1500px at 100% 0%);
+    pointer-events: all;
+  }
+}
+/* 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 2rem;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 10vh;
+  top: 0;
+}
+
+.navbar_links {
+  display: flex;
+  justify-content: left;
+}
+
+.navbar ul {
+  display: flex;
+}
+
+.navbar a {
+  color: #fff;
+  padding: 0.45rem;
+  margin: 0 0.25rem;
+}
+
+.navbar a:hover {
+  color: var(--primary-color);
+}
+
+.navbar .welcome span {
+  margin-right: 0.6rem;
+}
+
+.navbar_mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.test {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    padding: 0.5rem;
+  }
+  .navbar span {
+    display: none;
+  }
+}
+
+@media (min-width: 700px) {
+  .navbar {
+    padding: 0.5rem;
+  }
+  .navbar span {
+    display: none;
+  }
+} */

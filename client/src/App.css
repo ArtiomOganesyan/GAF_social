@@ -1,38 +1,7 @@
+@import url('./components/layout/Navbar.css');
+@import url('./constants_style.css');
+
 /* Global Styles */
-:root {
-  --primary-color: #17a2b8;
-  --dark-color: #343a40;
-  --light-color: #f4f4f4;
-  --danger-color: #dc3545;
-  --success-color: #28a745;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Raleway', sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  background-color: #fff;
-  color: #333;
-}
-
-a {
-  color: var(--primary-color);
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
-}
-
-img {
-  width: 100%;
-}
 
 /* Utilities */
 .container {
@@ -298,55 +267,22 @@ button {
   background: var(--light-color);
 }
 
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.7rem 2rem;
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-  top: 0;
-  border-bottom: solid 1px var(--primary-color);
-  opacity: 0.9;
-}
-
-.navbar ul {
-  display: flex;
-}
-
-.navbar a {
-  color: #fff;
-  padding: 0.45rem;
-  margin: 0 0.25rem;
-}
-
-.navbar a:hover {
-  color: var(--primary-color);
-}
-
-.navbar .welcome span {
-  margin-right: 0.6rem;
-}
-
 /* Landing Page */
 .landing {
-  position: relative;
-  background: url('./img/showcase.jpg') no-repeat center center / cover;
-  height: 100vh;
+  background: url('./img/title_page.jpg') no-repeat center center / cover;
+  height: 90vh;
 }
 
-.landing-inner {
-  color: #fff;
-  height: 100%;
-  width: 80%;
-  margin: auto;
+.landing_inner {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  color: #fff;
+  margin: auto;
+  height: 100%;
+  background: #00000070;
 }
 
 /* Profiles Page */
@@ -488,10 +424,21 @@ button {
   margin-bottom: 0.5rem;
 }
 
+/* Desktop Styles */
+@media (min-width: 700px) {
+  .hide-xl {
+    display: none;
+  }
+}
+
 /* Mobile Styles */
 @media (max-width: 700px) {
   .container {
     margin-top: 8rem;
+  }
+
+  .hide-xl {
+    display: block;
   }
 
   .hide-sm {
@@ -509,25 +456,6 @@ button {
 
   .lead {
     font-size: 1rem;
-  }
-
-  /* Navbar */
-  .navbar {
-    display: block;
-    text-align: center;
-  }
-
-  .navbar ul {
-    text-align: center;
-    justify-content: center;
-  }
-
-  .navbar h1 {
-    margin-bottom: 1rem;
-  }
-
-  .navbar .welcome {
-    display: none;
   }
 
   /* Profiles Page */
@@ -574,4 +502,23 @@ button {
   .post button {
     padding: 0.3rem 0.4rem;
   }
+}
+
+@media (min-width: 320px) {
+  /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+}
+@media (min-width: 480px) {
+  /* smartphones, Android phones, landscape iPhone */
+}
+@media (min-width: 600px) {
+  /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+}
+@media (min-width: 801px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+@media (min-width: 1025px) {
+  /* big landscape tablets, laptops, and desktops */
+}
+@media (min-width: 1281px) {
+  /* hi-res laptops and desktops */
 }
